@@ -6,7 +6,8 @@ import config from './../config';
     const db = await mongoose.connect(config.mongodburl,
     {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useFindAndModify: false,
     });
     console.log("Conectado a la base de datos", db.connection.name);
 })();
