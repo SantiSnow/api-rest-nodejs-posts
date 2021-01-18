@@ -8,19 +8,34 @@ export const index = (req, res)=>{
 
 export const findAllPosts = async (req, res)=>{
     const allPosts = await Post.find();
+
+    if(!allPosts){
+        return res.status(404).json({ message: `No se encontraron posts`});
+    }
+
     res.json({ allPosts });
 }
 
 export const findOnePost = async (req, res)=>{
     const id = req.params;
     const postFound = await Post.find(id);
+
+    if(!postFound){
+        return res.status(404).json({ message: `No se encontró un post con el id ${id}`});
+    }
+
     res.json({ postFound });
 }
 
 export const findUsersPost = async (req, res)=>{
     const id = req.params.id;
-    const postFound = await Post.find({ userId: id });
-    res.json({ postFound });
+    const postFounds = await Post.find({ userId: id });
+
+    if(!postFounds){
+        return res.status(404).json({ message: `No se encontraron posts de ese usuario`});
+    }
+
+    res.json({ postFounds });
 }
 
 export const createPost = async (req, res)=>{

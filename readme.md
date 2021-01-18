@@ -14,3 +14,6 @@
 
 ### Dependencias de desarrollo
 -Nodemon
+
+### Dependencias de VS Code
+-Rest Client
