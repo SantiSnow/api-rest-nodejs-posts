@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3000/post/1
+GET http://localhost:3000/posts
 
 ###
 POST http://localhost:3000/post/create
@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
     "userId": 1,
-    "id": 1,
+    "id": 2,
     "title": "Lorem ipsum",
     "body": "Lorem ipsum dolor sit amet, this is just dummy text"
 }
