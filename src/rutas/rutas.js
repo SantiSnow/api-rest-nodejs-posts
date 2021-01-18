@@ -7,7 +7,15 @@ router.get('/', PostController.index);
 
 router.get('/posts', PostController.findAllPosts);
 
+router.get('/post/:id', PostController.findOnePost);
+
+router.get('/posts/user/:id', PostController.findUsersPost);
+
 router.post('/post/create', PostController.createPost);
+
+router.delete('/post/delete/:id', PostController.deletePost);
+
+router.put('/post/update', PostController.updatePost);
 
 
 export default router;

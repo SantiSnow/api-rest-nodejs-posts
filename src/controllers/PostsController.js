@@ -11,6 +11,18 @@ export const findAllPosts = async (req, res)=>{
     res.json({ allPosts });
 }
 
+export const findOnePost = async (req, res)=>{
+    const id = req.params;
+    const postFound = await Post.find(id);
+    res.json({ postFound });
+}
+
+export const findUsersPost = async (req, res)=>{
+    const id = req.params.id;
+    const postFound = await Post.find({ userId: id });
+    res.json({ postFound });
+}
+
 export const createPost = async (req, res)=>{
     const newPost = new Post({
         userId: req.body.userId,
@@ -20,4 +32,14 @@ export const createPost = async (req, res)=>{
     });
     await newPost.save();
     res.json({newPost});
+}
+
+export const deletePost = async (req, res)=>{
+    const id = req.params;
+    await Post.deleteOne(id)
+    res.json({ message: "Se elimino el post correctamente" });
+}
+
+export const updatePost = async (req, res)=>{
+    res.json({ message: "Post actualizado" });
 }
