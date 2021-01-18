@@ -15,7 +15,7 @@ router.post('/post/create', PostController.createPost);
 
 router.delete('/post/delete/:id', PostController.deletePost);
 
-router.put('/post/update', PostController.updatePost);
+router.put('/post/update/:id', PostController.updatePost);
 
 
 export default router;

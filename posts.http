@@ -20,3 +20,17 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/post/delete/2
+
+###
+PUT http://localhost:3000/post/update/6005a86fd3f6862a54e22d45
+Content-Type: application/json
+
+{
+    "_id": "6005a86fd3f6862a54e22d45",
+    "userId": 1,
+    "id": 1,
+    "title": "Lorem ipsum",
+    "body": "This is my new post with just dummy text, updated via my own REST API",
+    "createdAt": "2021-01-18T15:25:35.333Z",
+    "updatedAt": "2021-01-18T15:57:41.889Z"
+}

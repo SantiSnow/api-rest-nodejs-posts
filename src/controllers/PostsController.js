@@ -41,5 +41,6 @@ export const deletePost = async (req, res)=>{
 }
 
 export const updatePost = async (req, res)=>{
+    await Post.findByIdAndUpdate(req.params.id, req.body);
     res.json({ message: "Post actualizado" });
 }
