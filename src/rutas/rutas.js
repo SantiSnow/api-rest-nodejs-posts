@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import Post from './../models/Post';
 
 const router = Router();
 
@@ -22,10 +23,15 @@ router.get('/post/1', (req, res)=>{
 });
 
 
-router.get('/posts/create', (req, res)=>{
-    res.json({
-        message: "Aqui se crean posts"
-    })
+router.post('/post/create', async (req, res)=>{
+    const newPost = new Post({
+        userId: req.body.userId,
+        id: req.body.id,
+        title: req.body.title,
+        body: req.body.body
+    });
+    await newPost.save();
+    res.json({newPost});
 });
 
 

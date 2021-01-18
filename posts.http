@@ -1,0 +1,13 @@
+###
+GET http://localhost:3000/post/1
+
+###
+POST http://localhost:3000/post/create
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "id": 1,
+    "title": "Lorem ipsum",
+    "body": "Lorem ipsum dolor sit amet, this is just dummy text"
+}

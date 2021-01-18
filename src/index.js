@@ -5,6 +5,7 @@ import "./database/database";
 //configuracion del server
 const app = express();
 app.set('port', process.env.PORT || 3000);
+app.use(express.json());
 
 
 //rutas
