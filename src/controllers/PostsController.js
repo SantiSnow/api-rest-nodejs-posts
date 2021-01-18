@@ -24,6 +24,11 @@ export const findUsersPost = async (req, res)=>{
 }
 
 export const createPost = async (req, res)=>{
+
+    if(!req.body.userId || !req.body.id || !req.body.title || !req.body.body ){
+        return res.status(500).send({ message: 'El contenido no puede estar vacio'});
+    }
+
     const newPost = new Post({
         userId: req.body.userId,
         id: req.body.id,
@@ -35,12 +40,22 @@ export const createPost = async (req, res)=>{
 }
 
 export const deletePost = async (req, res)=>{
+
+    if(!req.params){
+        return res.status(500).send({ message: 'Se necesitan los parametros para eliminar datos'});
+    }
+
     const id = req.params;
     await Post.deleteOne(id)
     res.json({ message: "Se elimino el post correctamente" });
 }
 
 export const updatePost = async (req, res)=>{
+
+    if(!req.params){
+        return res.status(500).send({ message: 'Se necesitan los parametros para actualizar datos'});
+    }
+
     await Post.findByIdAndUpdate(req.params.id, req.body);
     res.json({ message: "Post actualizado" });
 }
