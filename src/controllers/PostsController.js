@@ -7,7 +7,7 @@ export const index = (req, res)=>{
 }
 
 export const findAllPosts = async (req, res)=>{
-    const allPosts = await Post.find();
+    const allPosts = await Post.find().sort({ id: 1 });
 
     if(!allPosts){
         return res.status(500).json({ message: `No se encontraron posts`});
@@ -60,9 +60,15 @@ export const deletePost = async (req, res)=>{
         return res.status(500).send({ message: 'Se necesitan los parametros para eliminar datos'});
     }
 
-    const id = req.params;
-    await Post.deleteOne(id)
-    res.json({ message: "Se elimino el post correctamente" });
+    try{
+        const id = req.params;
+        await Post.deleteOne(id)
+        res.json({ message: "Se elimino el post correctamente" });
+    }
+    catch(error){
+        return res.status(500).send({ message: 'Error interno del servidor '});
+    }
+
 }
 
 export const updatePost = async (req, res)=>{
@@ -70,7 +76,11 @@ export const updatePost = async (req, res)=>{
     if(!req.params){
         return res.status(500).send({ message: 'Se necesitan los parametros para actualizar datos'});
     }
-
-    await Post.findByIdAndUpdate(req.params.id, req.body);
-    res.json({ message: "Post actualizado" });
+    try{
+        await Post.findByIdAndUpdate(req.params.id, req.body);
+        res.json({ message: "Post actualizado" });
+    }
+    catch(error){
+        return res.status(500).send({ message: 'Error interno del servidor '});
+    }
 }
