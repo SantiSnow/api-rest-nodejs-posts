@@ -5,20 +5,20 @@
 
 ## Dependencias
 <ul>
-    <li>-Express</li>
-    <li>-Mongoose</li>
-    <li>-Morgan</li>
-    <li>-CORS</li>
-    <li>-DotEnv</li>
+    <li>Express</li>
+    <li>Mongoose</li>
+    <li>Morgan</li>
+    <li>CORS</li>
+    <li>DotEnv</li>
 </ul>
 
 ### Dependencias de desarrollo
 <ul>
-    <li>-Nodemon</li>
-    <li>-Babel</li>
+    <li>Nodemon</li>
+    <li>Babel</li>
 </ul>
 
 ### Dependencias de VS Code para testear
 <ul>
-    <li>-Rest Client</li>
+    <li>Rest Client</li>
 </ul>
