@@ -10,7 +10,7 @@ export const findAllPosts = async (req, res)=>{
     const allPosts = await Post.find();
 
     if(!allPosts){
-        return res.status(404).json({ message: `No se encontraron posts`});
+        return res.status(500).json({ message: `No se encontraron posts`});
     }
 
     res.json({ allPosts });
@@ -38,8 +38,7 @@ export const findUsersPost = async (req, res)=>{
     res.json({ postFounds });
 }
 
-export const createPost = async (req, res)=>{
-
+export const createPost = async (req, res)=>{    
     if(!req.body.userId || !req.body.id || !req.body.title || !req.body.body ){
         return res.status(500).send({ message: 'El contenido no puede estar vacio'});
     }
@@ -50,6 +49,7 @@ export const createPost = async (req, res)=>{
         title: req.body.title,
         body: req.body.body
     });
+
     await newPost.save();
     res.json({newPost});
 }
