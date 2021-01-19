@@ -16,6 +16,16 @@ export const findAllPosts = async (req, res)=>{
     res.json({ allPosts });
 }
 
+export const findAllPostsByDate = async (req, res)=>{
+    const allPosts = await Post.find().sort({ "createdAt": 1 });
+
+    if(!allPosts){
+        return res.status(500).json({ message: `No se encontraron posts`});
+    }
+
+    res.json({ allPosts });
+}
+
 export const findOnePost = async (req, res)=>{
     const id = req.params;
     const postFound = await Post.find(id);

@@ -7,6 +7,8 @@ router.get('/', PostController.index);
 
 router.get('/posts', PostController.findAllPosts);
 
+router.get('/posts-by-date', PostController.findAllPostsByDate);
+
 router.get('/post/:id', PostController.findOnePost);
 
 router.get('/posts/user/:id', PostController.findUsersPost);

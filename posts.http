@@ -2,6 +2,9 @@
 GET http://localhost:3000/posts
 
 ###
+GET http://localhost:3000/posts-by-date
+
+###
 GET http://localhost:3000/post/1
 
 ###
