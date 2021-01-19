@@ -4,16 +4,21 @@
  entre ellos por ID del objeto, por ID del usuario, actualizarlos, crearlos y eliminarlos.</p>
 
 ## Dependencias
-
--Express
--Babel
--Mongoose
--Morgan
--CORS
--DotEnv
+<ul>
+    <li>-Express</li>
+    <li>-Mongoose</li>
+    <li>-Morgan</li>
+    <li>-CORS</li>
+    <li>-DotEnv</li>
+</ul>
 
 ### Dependencias de desarrollo
--Nodemon
+<ul>
+    <li>-Nodemon</li>
+    <li>-Babel</li>
+</ul>
 
-### Dependencias de VS Code
--Rest Client
+### Dependencias de VS Code para testear
+<ul>
+    <li>-Rest Client</li>
+</ul>
